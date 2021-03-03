@@ -1,0 +1,1993 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/2/2021 9:07:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-H85M37O"
+  DTS:CreatorName="DESKTOP-H85M37O\Enrique Garcia"
+  DTS:DTSID="{FF27AC20-D61D-4D50-BB05-501B8237A845}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.152"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{FE157115-42E0-43D9-8E43-F0E1CB5B9F1D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{67463BFE-9419-4D20-A491-A42714B9DB33}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\Prueba tecnica\Datos_Prueba_Cinte4.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-H85M37O\SQLEXPRESS.SQLDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{20DF3CE3-2F03-48AD-B4DF-395831BCD3A6}"
+      DTS:ObjectName="DESKTOP-H85M37O\SQLEXPRESS.SQLDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-H85M37O\SQLEXPRESS;Initial Catalog=SQLDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.system]"
+      DTS:CreationName="ADO.NET:System.Data.OracleClient.OracleConnection, System.Data.OracleClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{12B3ACDB-E685-4151-934C-8D49A990B484}"
+      DTS:ObjectName="localhost.system">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=system;Persist Security Info=True;Unicode=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAmK2VvgoLbkm4D/vVXlkuKgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACnyFZx6N9jsEOkdut4hh011ikAIVsiMBZPhsVRh8zvMwAAAAAOgAAAAAIAACAAAAC9X2kZR3enHR+PKh6gZb6xemSRESQmoVImi7G8lz4NxxAAAADbl87KAInjQx7o8uRec94wQAAAAKItzhexwjB5Aw29JoKFbzX6EcgK1LSL1ntc8x+7jqJ/pr3N1M4vBxMtAwWO1xYrsThDeKjjirrDpFjjaEKVIjY</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{890198AD-82DA-40E2-BD4A-F1DDE7077E93}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Contenedor de bucles Foreach"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:DelayValidation="True"
+      DTS:Description="Contenedor de bucles Foreach"
+      DTS:DTSID="{8BDE83F1-D678-4B31-98C8-297D5EE7D5D0}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Contenedor de bucles Foreach">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{C03BA2FF-8C22-452F-B1B7-DDFE628AE771}"
+        DTS:ObjectName="{C03BA2FF-8C22-452F-B1B7-DDFE628AE771}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="D:\Prueba tecnica" />
+            <FEFEProperty
+              FileSpec="*.xls" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{0393CBF6-B640-4F34-B909-6801170267ED}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow ORACLE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Documento]"
+                          cachedDataType="r8"
+                          cachedName="Documento"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Documento]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Fecha]"
+                          cachedDataType="date"
+                          cachedName="Fecha"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Fecha]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Departamento]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Departamento"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Departamento]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Municipio]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Municipio"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Municipio]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Dia]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Dia"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Dia]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Hora]"
+                          cachedDataType="date"
+                          cachedName="Hora"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Hora]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Sitio]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Sitio"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Sitio]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Agresor]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Agresor"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Agresor]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Victima]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Victima"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Victima]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Edad]"
+                          cachedDataType="r8"
+                          cachedName="Edad"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Edad]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Pais_nacimiento]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Pais_nacimiento"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Pais_nacimiento]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Clase_empleado]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Clase_empleado"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Clase_empleado]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Profesion]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Profesion"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Profesion]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Escolaridad]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Escolaridad"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Escolaridad]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input].Columns[Codigo_DANE]"
+                          cachedDataType="r8"
+                          cachedName="Codigo_DANE"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Codigo_DANE]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Documento]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Documento]"
+                          name="Copia de Documento"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Documento]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Fecha]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Fecha]"
+                          name="Copia de Fecha"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Fecha]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Departamento]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Departamento]"
+                          name="Copia de Departamento"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Departamento]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Municipio]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Municipio]"
+                          name="Copia de Municipio"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Municipio]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Dia]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Dia]"
+                          name="Copia de Dia"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Dia]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Hora]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Hora]"
+                          name="Copia de Hora"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Hora]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Sitio]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Sitio]"
+                          name="Copia de Sitio"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Sitio]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Agresor]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Agresor]"
+                          name="Copia de Agresor"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Agresor]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Victima]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Victima]"
+                          name="Copia de Victima"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Victima]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Edad]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Edad]"
+                          name="Copia de Edad"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Edad]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Pais_nacimiento]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Pais_nacimiento]"
+                          name="Copia de Pais_nacimiento"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Pais_nacimiento]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Clase_empleado]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Clase_empleado]"
+                          name="Copia de Clase_empleado"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Clase_empleado]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Profesion]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Profesion]"
+                          name="Copia de Profesion"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Profesion]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Escolaridad]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Escolaridad]"
+                          name="Copia de Escolaridad"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Escolaridad]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Codigo_DANE]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output].Columns[Copia de Codigo_DANE]"
+                          name="Copia de Codigo_DANE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Codigo_DANE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+                  description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+                  name="Destino de ADO NET"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Nombre de la tabla de la base de datos de destino."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"SYSTEM"."ROBOS"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.system]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.system]"
+                      description="Administrador de conexiones administrado"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrada de destino de ADO NET">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Documento]"
+                          cachedDataType="r8"
+                          cachedName="Documento"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[DOCUMENTO]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Documento]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Fecha]"
+                          cachedDataType="date"
+                          cachedName="Fecha"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[FECHA]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Fecha]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Departamento]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Departamento"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[DEPARTAMENTO]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Departamento]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Municipio]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Municipio"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[MUNICIPIO]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Municipio]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Dia]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Dia"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[DIA]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Dia]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Hora]"
+                          cachedDataType="date"
+                          cachedName="Hora"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[HORA]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Hora]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Sitio]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Sitio"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[SITIO]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Sitio]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Agresor]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Agresor"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[AGRESOR]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Agresor]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Victima]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Victima"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[VICTIMA]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Victima]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Edad]"
+                          cachedDataType="r8"
+                          cachedName="Edad"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[EDAD]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Edad]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Pais_nacimiento]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Pais_nacimiento"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PAIS_NACIMIENTO]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Pais_nacimiento]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Clase_empleado]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Clase_empleado"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CLASE_EMPLEADO]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Clase_empleado]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Profesion]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Profesion"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PROFESION]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Profesion]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Escolaridad]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Escolaridad"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESCOLARIDAD]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Escolaridad]" />
+                        <inputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Codigo_DANE]"
+                          cachedDataType="r8"
+                          cachedName="Codigo_DANE"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CODIGO_DANE]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Codigo_DANE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[DOCUMENTO]"
+                          dataType="numeric"
+                          name="DOCUMENTO"
+                          precision="12" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[FECHA]"
+                          dataType="dbTimeStamp"
+                          name="FECHA" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[DEPARTAMENTO]"
+                          dataType="wstr"
+                          length="255"
+                          name="DEPARTAMENTO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[MUNICIPIO]"
+                          dataType="wstr"
+                          length="255"
+                          name="MUNICIPIO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[DIA]"
+                          dataType="wstr"
+                          length="255"
+                          name="DIA" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[HORA]"
+                          dataType="dbTimeStamp"
+                          name="HORA" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[SITIO]"
+                          dataType="wstr"
+                          length="255"
+                          name="SITIO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[AGRESOR]"
+                          dataType="wstr"
+                          length="255"
+                          name="AGRESOR" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[VICTIMA]"
+                          dataType="wstr"
+                          length="255"
+                          name="VICTIMA" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[EDAD]"
+                          dataType="numeric"
+                          name="EDAD"
+                          scale="129" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PAIS_NACIMIENTO]"
+                          dataType="wstr"
+                          length="255"
+                          name="PAIS_NACIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CLASE_EMPLEADO]"
+                          dataType="wstr"
+                          length="255"
+                          name="CLASE_EMPLEADO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[PROFESION]"
+                          dataType="wstr"
+                          length="255"
+                          name="PROFESION" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESCOLARIDAD]"
+                          dataType="wstr"
+                          length="255"
+                          name="ESCOLARIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CODIGO_DANE]"
+                          dataType="numeric"
+                          name="CODIGO_DANE"
+                          scale="129" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de destino de ADO NET"
+                      synchronousInputId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Hoja1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                      connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Documento]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Documento]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Documento]"
+                          name="Documento"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Fecha]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fecha]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Fecha]"
+                          name="Fecha"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Departamento]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Departamento]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Departamento]"
+                          name="Departamento"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Municipio]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Municipio]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Municipio]"
+                          name="Municipio"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Dia]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Dia]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Dia]"
+                          name="Dia"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Hora]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Hora]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Hora]"
+                          name="Hora"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Sitio]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sitio]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Sitio]"
+                          name="Sitio"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Agresor]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Agresor]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Agresor]"
+                          name="Agresor"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Victima]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Victima]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Victima]"
+                          name="Victima"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Edad]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Edad]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Edad]"
+                          name="Edad"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Pais_nacimiento]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Pais_nacimiento]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Pais_nacimiento]"
+                          name="Pais_nacimiento"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Clase_empleado]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Clase_empleado]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Clase_empleado]"
+                          name="Clase_empleado"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Profesion]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Profesion]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Profesion]"
+                          name="Profesion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Escolaridad]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Escolaridad]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Escolaridad]"
+                          name="Escolaridad"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Codigo_DANE]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Codigo_DANE]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].Columns[Codigo_DANE]"
+                          name="Codigo_DANE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Documento]"
+                          dataType="r8"
+                          name="Documento" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fecha]"
+                          dataType="date"
+                          name="Fecha" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Departamento]"
+                          dataType="wstr"
+                          length="255"
+                          name="Departamento" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Municipio]"
+                          dataType="wstr"
+                          length="255"
+                          name="Municipio" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Dia]"
+                          dataType="wstr"
+                          length="255"
+                          name="Dia" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Hora]"
+                          dataType="date"
+                          name="Hora" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sitio]"
+                          dataType="wstr"
+                          length="255"
+                          name="Sitio" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Agresor]"
+                          dataType="wstr"
+                          length="255"
+                          name="Agresor" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Victima]"
+                          dataType="wstr"
+                          length="255"
+                          name="Victima" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Edad]"
+                          dataType="r8"
+                          name="Edad" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Pais_nacimiento]"
+                          dataType="wstr"
+                          length="255"
+                          name="Pais_nacimiento" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Clase_empleado]"
+                          dataType="wstr"
+                          length="255"
+                          name="Clase_empleado" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Profesion]"
+                          dataType="wstr"
+                          length="255"
+                          name="Profesion" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Escolaridad]"
+                          dataType="wstr"
+                          length="255"
+                          name="Escolaridad" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output].ExternalColumns[Codigo_DANE]"
+                          dataType="r8"
+                          name="Codigo_DANE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Documento]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Documento]"
+                          name="Documento" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Fecha]"
+                          dataType="date"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Fecha]"
+                          name="Fecha" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Departamento]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Departamento]"
+                          name="Departamento" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Municipio]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Municipio]"
+                          name="Municipio" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Dia]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Dia]"
+                          name="Dia" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Hora]"
+                          dataType="date"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Hora]"
+                          name="Hora" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Sitio]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Sitio]"
+                          name="Sitio" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Agresor]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Agresor]"
+                          name="Agresor" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Victima]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Victima]"
+                          name="Victima" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Edad]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Edad]"
+                          name="Edad" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Pais_nacimiento]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Pais_nacimiento]"
+                          name="Pais_nacimiento" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Clase_empleado]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Clase_empleado]"
+                          name="Clase_empleado" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Profesion]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Profesion]"
+                          name="Profesion" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Escolaridad]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Escolaridad]"
+                          name="Escolaridad" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Codigo_DANE]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[Codigo_DANE]"
+                          name="Codigo_DANE" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE.Paths[Data Conversion Output]"
+                  endId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                  name="Data Conversion Output"
+                  startId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Contenedor de bucles Foreach\Data Flow ORACLE.Paths[Excel Source Output]"
+                  endId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Excel Source Output"
+                  startId="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de bucles Foreach\Data Flow SQLS"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{AC96DBFE-1FDF-4827-BA7C-D8A86AEA6F63}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow SQLS"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+                  description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+                  name="Origen de ADO NET"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Nombre de la tabla de la base de datos de origen."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"SYSTEM"."ROBOS"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especificar el modo de recuperar información de columnas externas"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.system]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.system]"
+                      description="Administrador de conexiones administrado"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET]"
+                      name="Salida de origen de ADO NET">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DOCUMENTO]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[DOCUMENTO]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DOCUMENTO]"
+                          name="DOCUMENTO"
+                          precision="12"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[FECHA]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[FECHA]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[FECHA]"
+                          name="FECHA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DEPARTAMENTO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[DEPARTAMENTO]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DEPARTAMENTO]"
+                          name="DEPARTAMENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[MUNICIPIO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[MUNICIPIO]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[MUNICIPIO]"
+                          name="MUNICIPIO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DIA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[DIA]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DIA]"
+                          name="DIA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[HORA]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[HORA]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[HORA]"
+                          name="HORA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[SITIO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[SITIO]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[SITIO]"
+                          name="SITIO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[AGRESOR]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[AGRESOR]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[AGRESOR]"
+                          name="AGRESOR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[VICTIMA]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[VICTIMA]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[VICTIMA]"
+                          name="VICTIMA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[EDAD]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[EDAD]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[EDAD]"
+                          name="EDAD"
+                          precision="38"
+                          scale="4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PAIS_NACIMIENTO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[PAIS_NACIMIENTO]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PAIS_NACIMIENTO]"
+                          name="PAIS_NACIMIENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CLASE_EMPLEADO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CLASE_EMPLEADO]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CLASE_EMPLEADO]"
+                          name="CLASE_EMPLEADO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PROFESION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[PROFESION]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[PROFESION]"
+                          name="PROFESION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[ESCOLARIDAD]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[ESCOLARIDAD]"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[ESCOLARIDAD]"
+                          name="ESCOLARIDAD"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CODIGO_DANE]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CODIGO_DANE]"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CODIGO_DANE]"
+                          name="CODIGO_DANE"
+                          precision="38"
+                          scale="4"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[DOCUMENTO]"
+                          dataType="numeric"
+                          name="DOCUMENTO"
+                          precision="12" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[FECHA]"
+                          dataType="dbTimeStamp"
+                          name="FECHA" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[DEPARTAMENTO]"
+                          dataType="wstr"
+                          length="255"
+                          name="DEPARTAMENTO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[MUNICIPIO]"
+                          dataType="wstr"
+                          length="255"
+                          name="MUNICIPIO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[DIA]"
+                          dataType="wstr"
+                          length="255"
+                          name="DIA" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[HORA]"
+                          dataType="dbTimeStamp"
+                          name="HORA" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[SITIO]"
+                          dataType="wstr"
+                          length="255"
+                          name="SITIO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[AGRESOR]"
+                          dataType="wstr"
+                          length="255"
+                          name="AGRESOR" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[VICTIMA]"
+                          dataType="wstr"
+                          length="255"
+                          name="VICTIMA" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[EDAD]"
+                          dataType="numeric"
+                          name="EDAD"
+                          precision="38"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[PAIS_NACIMIENTO]"
+                          dataType="wstr"
+                          length="255"
+                          name="PAIS_NACIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CLASE_EMPLEADO]"
+                          dataType="wstr"
+                          length="255"
+                          name="CLASE_EMPLEADO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[PROFESION]"
+                          dataType="wstr"
+                          length="255"
+                          name="PROFESION" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[ESCOLARIDAD]"
+                          dataType="wstr"
+                          length="255"
+                          name="ESCOLARIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CODIGO_DANE]"
+                          dataType="numeric"
+                          name="CODIGO_DANE"
+                          precision="38"
+                          scale="4" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET]"
+                      isErrorOut="true"
+                      name="Salida de error de origen de ADO NET">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[DOCUMENTO]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[DOCUMENTO]"
+                          name="DOCUMENTO"
+                          precision="12" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[FECHA]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[FECHA]"
+                          name="FECHA" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[DEPARTAMENTO]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[DEPARTAMENTO]"
+                          name="DEPARTAMENTO" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[MUNICIPIO]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[MUNICIPIO]"
+                          name="MUNICIPIO" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[DIA]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[DIA]"
+                          name="DIA" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[HORA]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[HORA]"
+                          name="HORA" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[SITIO]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[SITIO]"
+                          name="SITIO" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[AGRESOR]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[AGRESOR]"
+                          name="AGRESOR" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[VICTIMA]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[VICTIMA]"
+                          name="VICTIMA" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[EDAD]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[EDAD]"
+                          name="EDAD"
+                          precision="38"
+                          scale="4" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[PAIS_NACIMIENTO]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[PAIS_NACIMIENTO]"
+                          name="PAIS_NACIMIENTO" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CLASE_EMPLEADO]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CLASE_EMPLEADO]"
+                          name="CLASE_EMPLEADO" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[PROFESION]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[PROFESION]"
+                          name="PROFESION" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ESCOLARIDAD]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ESCOLARIDAD]"
+                          name="ESCOLARIDAD" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CODIGO_DANE]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CODIGO_DANE]"
+                          name="CODIGO_DANE"
+                          precision="38"
+                          scale="4" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination"
+                  componentClassID="Microsoft.SQLServerDestination"
+                  contactInfo="SQL Server Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
+                  description="SQL Server Destination"
+                  name="SQL Server Destination"
+                  version="5">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.String"
+                      description="The name of the database object to copy data into."
+                      expressionType="Notify"
+                      name="BulkInsertTableName">[SQLDestino]</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies that any constraints on the destination object are checked during the data copy operation. Corresponds to the bulk insert CHECK_CONSTRAINTS option."
+                      name="BulkInsertCheckConstraints">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the number of the first row to copy. Corresponds to the bulk insert FIRSTROW option."
+                      expressionType="Notify"
+                      name="BulkInsertFirstRow">-1</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies that any insert triggers defined on the destination object will execute during the data copy. Corresponds to the bulk insert FIRE_TRIGGERS option."
+                      name="BulkInsertFireTriggers">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Corresponds to the bulk insert KEEPIDENTITY option."
+                      name="BulkInsertKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null copied to the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="BulkInsertKeepNulls">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the number of the last row to copy. Corresponds to the bulk insert LASTROW option."
+                      expressionType="Notify"
+                      name="BulkInsertLastRow">-1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of syntax errors and compilation errors that can occur before the data copy operation is canceled. Each row that cannot be copied is ignored and counted as one error. Corresponds to the bulk insert MAXERRORS option."
+                      name="BulkInsertMaxErrors">-1</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies how the data to be copied is sorted. Corresponds to the bulk insert ORDER option."
+                      expressionType="Notify"
+                      name="BulkInsertOrder"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies that a table-level lock is acquired for the duration of the data copy operation. Corresponds to the bulk insert TABLOCK option."
+                      name="BulkInsertTablock">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies in seconds the amount of time the SQL Destination adapter will wait before terminating if there is no data available for insertion.  A timeout value of 0 means the SQL Destination adapter will not time out."
+                      expressionType="Notify"
+                      name="Timeout">30</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion."
+                      name="MaxInsertCommitSize">0</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-H85M37O\SQLEXPRESS.SQLDB]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-H85M37O\SQLEXPRESS.SQLDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input]"
+                      hasSideEffects="true"
+                      name="SQL Server Destination Input">
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[DOCUMENTO]"
+                          dataType="numeric"
+                          name="DOCUMENTO"
+                          precision="12" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[FECHA]"
+                          dataType="dbTimeStamp"
+                          name="FECHA" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[DEPARTAMENTO]"
+                          dataType="wstr"
+                          length="255"
+                          name="DEPARTAMENTO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[MUNICIPIO]"
+                          dataType="wstr"
+                          length="255"
+                          name="MUNICIPIO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[DIA]"
+                          dataType="wstr"
+                          length="255"
+                          name="DIA" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[HORA]"
+                          dataType="dbTimeStamp"
+                          name="HORA" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[SITIO]"
+                          dataType="wstr"
+                          length="255"
+                          name="SITIO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[AGRESOR]"
+                          dataType="wstr"
+                          length="255"
+                          name="AGRESOR" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VICTIMA]"
+                          dataType="wstr"
+                          length="255"
+                          name="VICTIMA" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[EDAD]"
+                          dataType="numeric"
+                          name="EDAD"
+                          precision="38"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[PAIS_NACIMIENTO]"
+                          dataType="wstr"
+                          length="255"
+                          name="PAIS_NACIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[CLASE_EMPLEADO]"
+                          dataType="wstr"
+                          length="255"
+                          name="CLASE_EMPLEADO" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[PROFESION]"
+                          dataType="wstr"
+                          length="255"
+                          name="PROFESION" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[ESCOLARIDAD]"
+                          dataType="wstr"
+                          length="255"
+                          name="ESCOLARIDAD" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[CODIGO_DANE]"
+                          dataType="numeric"
+                          name="CODIGO_DANE"
+                          precision="38"
+                          scale="4" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Contenedor de bucles Foreach\Data Flow SQLS.Paths[Salida de origen de ADO NET]"
+                  endId="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination.Inputs[SQL Server Destination Input]"
+                  name="Salida de origen de ADO NET"
+                  startId="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET.Outputs[Salida de origen de ADO NET]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contenedor de bucles Foreach.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{0C49D2E9-2A0E-4A01-A5EF-BD8D8E86A44E}"
+          DTS:From="Package\Contenedor de bucles Foreach\Data Flow ORACLE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\Contenedor de bucles Foreach\Data Flow SQLS" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{1F53004A-7C37-4C6B-9F1E-F00C687B68BC}"
+          DTS:ObjectName="{1F53004A-7C37-4C6B-9F1E-F00C687B68BC}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Contenedor de bucles Foreach\Data Flow ORACLE"
+          TopLeft="53,27" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Contenedor de bucles Foreach\Data Flow SQLS"
+          TopLeft="66,103" />
+        <EdgeLayout
+          Id="Package\Contenedor de bucles Foreach.PrecedenceConstraints[Restricción]"
+          TopLeft="140,69">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="265,199"
+          Size="265,242"
+          Id="Package\Contenedor de bucles Foreach"
+          TopLeft="216,68" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Contenedor de bucles Foreach\Data Flow SQLS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET"
+          TopLeft="304,47" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination"
+          TopLeft="297,153" />
+        <EdgeLayout
+          Id="Package\Contenedor de bucles Foreach\Data Flow SQLS.Paths[Salida de origen de ADO NET]"
+          TopLeft="390.5,89">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Contenedor de bucles Foreach\Data Flow ORACLE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Excel Source"
+          TopLeft="248,26" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Data Conversion"
+          TopLeft="247,96" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Contenedor de bucles Foreach\Data Flow ORACLE\Destino de ADO NET"
+          TopLeft="234,172" />
+        <EdgeLayout
+          Id="Package\Contenedor de bucles Foreach\Data Flow ORACLE.Paths[Data Conversion Output]"
+          TopLeft="323.5,138">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de bucles Foreach\Data Flow ORACLE.Paths[Excel Source Output]"
+          TopLeft="321.25,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de bucles Foreach\Data Flow SQLS\Origen de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de bucles Foreach\Data Flow SQLS\SQL Server Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
